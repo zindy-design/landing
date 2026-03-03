@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zindy Cabrera | Perfil Profesional</title>
+    <title>Zindy Cabrera | Gestión Administrativa & IA</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #D4A373; /* Terracota suave */
+            --primary: #D4A373; /* Terracota */
             --bg: #F9F7F2;      /* Crema */
-            --text: #2D2A26;    /* Café casi negro */
+            --text: #2D2A26;    /* Café Profundo */
             --white: #FFFFFF;
         }
 
@@ -28,31 +28,14 @@
             line-height: 1.6;
         }
 
-        /* Botón de Modo */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: none;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-        }
-
-        /* Layout Principal */
         header {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 40px 20px;
         }
 
         .tagline {
@@ -60,27 +43,25 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: 600;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             margin: 0;
             font-weight: 800;
             letter-spacing: -2px;
-            line-height: 1;
+            line-height: 1.1;
         }
 
-        .description {
-            max-width: 600px;
+        .hero-desc {
+            max-width: 700px;
             font-size: 1.1rem;
             font-weight: 300;
             margin: 25px 0 40px;
-            opacity: 0.9;
         }
 
-        /* Botones Pulidos */
         .cta-group {
             display: flex;
             gap: 15px;
@@ -96,114 +77,126 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: all 0.3s ease;
-            border-radius: 2px; /* Estilo más cuadrado y profesional */
+            border-radius: 4px;
         }
 
-        .btn-cv {
-            background-color: var(--text);
-            color: var(--bg);
-        }
+        .btn-cv { background: var(--text); color: var(--bg); }
+        .btn-ws { border: 1px solid var(--text); color: var(--text); }
 
-        .btn-ws {
-            border: 1px solid var(--text);
-            color: var(--text);
-        }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-        .btn:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
-        }
-
-        /* Sección de Trayectoria */
-        .info-section {
-            padding: 100px 20px;
-            max-width: 1000px;
+        /* Cuadrícula de Experiencia */
+        .grid-container {
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 60px 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .info-card {
+        .card {
             background: var(--white);
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-bottom: 3px solid var(--primary);
+            transition: 0.3s;
         }
 
-        .info-card h3 {
+        .card:hover { transform: translateY(-5px); }
+
+        .card h3 {
             margin-top: 0;
-            color: var(--primary);
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            color: var(--primary);
+            letter-spacing: 1.5px;
         }
 
-        .info-card p {
-            margin-bottom: 0;
+        .card ul {
+            padding: 0;
+            list-style: none;
             font-size: 0.95rem;
         }
 
+        .card li { margin-bottom: 10px; padding-left: 15px; position: relative; }
+        .card li::before { content: "•"; position: absolute; left: 0; color: var(--primary); }
+
         footer {
-            padding: 40px;
+            padding: 60px 20px;
             text-align: center;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            opacity: 0.6;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 3rem; }
-            .btn { width: 100%; text-align: center; }
+        .theme-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <button class="theme-toggle" onclick="toggleTheme()">CAMBIAR MODO</button>
+    <button class="theme-btn" onclick="document.body.toggleAttribute('data-theme')">MODO OSCURO</button>
 
     <header>
-        <span class="tagline">Asistente Virtual & IA Ops</span>
+        <span class="tagline">Eficiencia Administrativa & IA</span>
         <h1>Zindy Cabrera</h1>
-        <p class="description">
-            Especialista en gestión administrativa con más de 3 años de experiencia en el sector corporativo. 
-            Combinando el rigor institucional con la eficiencia de la inteligencia artificial.
+        <p class="hero-desc">
+            Asistente administrativa con más de 3 años de experiencia en gestión documental y coordinación de procesos. Especializada en transformar la operatividad tradicional con herramientas de Inteligencia Artificial[cite: 5, 33].
         </p>
 
         <div class="cta-group">
-            <a href="CV%20Zindy%20Cabrera.pdf" class="btn btn-cv" download>Descargar Currículo</a>
-            <a href="https://wa.me/584129908773" class="btn btn-ws" target="_blank">Contacto Directo</a>
+            <a href="CV%20Zindy%20Cabrera.pdf" class="btn btn-cv" download>Descargar Currículo (PDF)</a>
+            <a href="https://wa.me/584129908773" class="btn btn-ws" target="_blank">Escribir a WhatsApp</a>
         </div>
     </header>
 
-    <section class="info-section">
-        <div class="info-card">
-            <h3>Perfil Profesional</h3>
-            <p>Experiencia consolidada en la Dirección Jurídica de Telecomunicaciones Gran Caribe. Dominio de redacción técnica, gestión documental y flujos administrativos complejos.</p>
+    <section class="grid-container">
+        <div class="card">
+            <h3>Trayectoria Core</h3>
+            <p><strong>Telecomunicaciones Gran Caribe</strong> [cite: 9]<br>Asistente Principal - Dirección Jurídica (2017-2020).</p>
+            <ul>
+                <li>Coordinación de agendas y reuniones[cite: 10].</li>
+                <li>Redacción y revisión de documentos técnicos[cite: 12].</li>
+                <li>Gestión de archivos digitales y físicos[cite: 10].</li>
+            </ul>
         </div>
-        <div class="info-card">
-            <h3>Formación & Visión</h3>
-            <p>Estudiante de Psicología, lo que aporta una gestión humana y empática en la atención al cliente y la organización de equipos remotos.</p>
+
+        <div class="card">
+            <h3>Habilidades de Vanguardia</h3>
+            <ul>
+                <li>Domina la IA 2026 (Gemini/ChatGPT)[cite: 33].</li>
+                <li>Gestión de calendarios y Office avanzado[cite: 17, 19].</li>
+                <li>Estrategias de Marketing Digital[cite: 32].</li>
+                <li>Psicología aplicada a la gestión (En curso).</li>
+            </ul>
         </div>
-        <div class="info-card">
-            <h3>IA & Tecnología</h3>
-            <p>Experta en el uso de Gemini y ChatGPT para la optimización de tiempos, automatización de tareas y creación de contenido estratégico.</p>
+
+        <div class="card">
+            <h3>Diferencial</h3>
+            <p>Alta orientación al detalle y capacidad de resolución proactiva de problemas[cite: 25, 27].</p>
+            <ul>
+                <li>Comunicación efectiva corporativa[cite: 24].</li>
+                <li>Trabajo autónomo y remoto certificado[cite: 29, 33].</li>
+                <li>Gestión integral de clientes y pedidos[cite: 14].</li>
+            </ul>
         </div>
     </section>
 
     <footer>
-        © 2026 ZINDY CABRERA | SSANEVARZ@GMAIL.COM | VENEZUELA
+        <p>ssanevarz@gmail.com | +58 412 990 8773 | Caracas, Venezuela [cite: 3]</p>
+        <p>© 2026 Zindy Cabrera | Perfil Profesional Verificado</p>
     </footer>
-
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-            }
-        }
-    </script>
 
 </body>
 </html>
