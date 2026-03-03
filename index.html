@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>Zindy Cabrera | Asistente Virtual & IA Ops</title>
+    <meta name="description" content="Especialista en gestión administrativa y IA Ops. Ex-Dirección Jurídica en Telecomunicaciones Gran Caribe.">
+    <meta property="og:title" content="Zindy Cabrera | Perfil Profesional">
+    <meta property="og:description" content="Asistente Virtual con rigor institucional y dominio de IA.">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -31,7 +36,7 @@
             line-height: 1.6;
         }
 
-        /* Botón de WhatsApp Flotante (Fijo) */
+        /* AJUSTE: Botón de WhatsApp Flotante (Garantizado Fijo) */
         .ws-float {
             position: fixed;
             bottom: 25px;
@@ -44,8 +49,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            z-index: 9999; /* Asegura que siempre esté encima de todo */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 9999;
             text-decoration: none;
             transition: transform 0.3s ease;
         }
@@ -54,11 +59,21 @@
 
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* Cambio de Modo */
+        /* AJUSTE: Cambio de Modo Fijo para mejor UX */
         .mode-btn {
-            position: absolute; top: 20px; right: 24px;
-            background: none; border: 1px solid var(--primary); color: var(--primary);
-            padding: 6px 12px; border-radius: 4px; font-size: 0.65rem; font-weight: 700; cursor: pointer;
+            position: fixed; 
+            top: 20px; 
+            right: 24px;
+            background: var(--white); 
+            border: 1px solid var(--primary); 
+            color: var(--primary);
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            font-size: 0.65rem; 
+            font-weight: 700; 
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         header {
@@ -103,7 +118,17 @@
             border-top: 4px solid var(--primary);
         }
 
-        .card h3 { margin: 0 0 15px 0; font-size: 0.8rem; letter-spacing: 2px; color: var(--primary); text-transform: uppercase; }
+        /* AJUSTE: Iconos en las tarjetas */
+        .card h3 { 
+            margin: 0 0 15px 0; 
+            font-size: 0.8rem; 
+            letter-spacing: 2px; 
+            color: var(--primary); 
+            text-transform: uppercase; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
         footer { text-align: center; padding: 40px 0; font-size: 0.7rem; opacity: 0.5; }
 
@@ -113,9 +138,9 @@
         }
     </style>
 </head>
-<body>
+<body id="mainBody">
 
-    <button class="mode-btn" onclick="document.body.toggleAttribute('data-theme')">MODO</button>
+    <button class="mode-btn" id="themeToggle">MODO</button>
 
     <a href="https://wa.me/584129908773" class="ws-float" target="_blank">
         <svg width="35" height="35" fill="white" viewBox="0 0 16 16">
@@ -139,15 +164,15 @@
 
         <section class="info-grid">
             <div class="card">
-                <h3>Experiencia Legal</h3>
+                <h3>⚖️ Experiencia Legal</h3>
                 <p>3 años como Asistente Principal en Dirección Jurídica. Manejo de archivos críticos, agendas institucionales y redacción técnica de alto nivel.</p>
             </div>
             <div class="card">
-                <h3>Formación Humana</h3>
+                <h3>🧠 Formación Humana</h3>
                 <p>Estudiante de Psicología (UBA). Enfoque en atención al cliente profesional, resolución proactiva de problemas y comunicación asertiva.</p>
             </div>
             <div class="card">
-                <h3>Eficiencia IA</h3>
+                <h3>⚡ Eficiencia IA</h3>
                 <p>Dominio de Gemini y ChatGPT aplicada a la automatización administrativa, gestión de tiempo y flujos de trabajo en remoto.</p>
             </div>
         </section>
@@ -157,6 +182,26 @@
             © 2026 ZINDY CABRERA
         </footer>
     </div>
+
+    <script>
+        const body = document.getElementById('mainBody');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Verificar si ya existía una preferencia guardada
+        if(localStorage.getItem('theme') === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.hasAttribute('data-theme')) {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 
 </body>
 </html>
