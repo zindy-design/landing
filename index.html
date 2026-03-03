@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zindy Cabrera | IA & Remote Operations</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Zindy Cabrera | Strategic Virtual Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #D4A373; /* Terracota */
+            --primary: #D4A373; 
             --bg: #F9F7F2;
-            --card-bg: rgba(255, 255, 255, 0.7);
-            --text: #4A443F;
+            --text: #2D2A26;
             --accent: #A3B18A;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --white: #FFFFFF;
         }
 
-        /* Variables para Modo Oscuro */
         [data-theme="dark"] {
-            --bg: #1A1A1A;
-            --card-bg: rgba(40, 40, 40, 0.8);
+            --bg: #121212;
             --text: #F9F7F2;
             --primary: #E9C46A;
+            --white: #1E1E1E;
         }
 
         body {
@@ -28,195 +26,230 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            transition: background-color 0.5s, color 0.5s;
-            overflow-x: hidden;
+            transition: all 0.5s ease;
+            line-height: 1.6;
         }
 
-        /* Botón de Modo Oscuro */
+        /* Botón Flotante */
         .theme-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 25px;
             z-index: 1000;
             background: var(--primary);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 30px;
+            padding: 12px 20px;
+            border-radius: 50px;
             cursor: pointer;
             font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
+        /* Hero Section - Emoción y Poder */
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at 10% 20%, rgba(212, 163, 115, 0.1) 0%, transparent 40%);
+            padding: 0 10%;
+            background: radial-gradient(circle at 80% 20%, rgba(212, 163, 115, 0.15), transparent 40%);
         }
 
-        .code-tag {
+        .eyebrow {
             font-family: 'Fira Code', monospace;
             color: var(--primary);
-            background: rgba(212, 163, 115, 0.1);
-            padding: 5px 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: fadeIn 1s ease-out;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+            letter-spacing: 2px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            line-height: 0.9;
             margin: 0;
-            font-weight: 700;
-            letter-spacing: -2px;
-            animation: slideUp 0.8s ease-out;
+            font-weight: 800;
+            letter-spacing: -3px;
         }
 
-        .hero-p {
-            max-width: 650px;
-            font-size: 1.2rem;
+        .hero-statement {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            max-width: 800px;
             font-weight: 300;
-            margin: 20px 0;
-            line-height: 1.6;
-            animation: slideUp 1s ease-out;
+            margin: 30px 0;
         }
 
-        .cta-container {
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Sección de Impacto */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            max-width: 900px;
+        }
+
+        .stat-item {
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Botones */
+        .cta-group {
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            animation: slideUp 1.2s ease-out;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .btn {
             text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 12px;
+            padding: 20px 40px;
+            border-radius: 4px;
             font-weight: 700;
-            transition: var(--transition);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            font-size: 0.9rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
         }
 
-        .btn-primary {
+        .btn-main {
             background: var(--primary);
             color: white;
-            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
         }
 
-        .btn-secondary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
+        .btn-outline {
+            border: 2px solid var(--text);
+            color: var(--text);
         }
 
         .btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .grid {
+        /* Sección de Propósito */
+        .manifesto {
+            padding: 100px 10%;
+            background-color: var(--white);
+        }
+
+        .manifesto-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
 
-        .card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: var(--transition);
+        @media (max-width: 900px) {
+            .manifesto-grid { grid-template-columns: 1fr; }
+            header { padding: 80px 5%; }
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        h2 {
+            font-size: 2.5rem;
+            letter-spacing: -1px;
         }
 
-        .card h3 {
-            font-family: 'Fira Code', monospace;
-            color: var(--primary);
-            margin-top: 0;
+        .manifesto-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         footer {
+            padding: 50px 10%;
             text-align: center;
-            padding: 60px;
             font-family: 'Fira Code', monospace;
             font-size: 0.8rem;
-            opacity: 0.6;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Animaciones */
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @media (max-width: 600px) {
-            .cta-container { flex-direction: column; width: 100%; }
-            .btn { text-align: center; }
-        }
     </style>
 </head>
 <body>
 
-    <button class="theme-toggle" onclick="toggleTheme()">CAMBIAR_MODO</button>
+    <button class="theme-toggle" onclick="toggleTheme()">MODO_SISTEMA</button>
 
     <header>
-        <div class="code-tag">system.status: ready_to_work</div>
-        <h1>Zindy Cabrera</h1>
-        <p class="hero-p">
-            Optimizando flujos de trabajo con <strong>Inteligencia Artificial</strong> y la precisión de una formación en <strong>Psicología</strong> aplicada al entorno remoto.
-        </p>
+        <span class="eyebrow">ASISTENTE VIRTUAL DE ALTO NIVEL</span>
+        <h1>Zindy <br> Cabrera</h1>
         
-        <div class="cta-container">
-            <a href="https://wa.me/584129908773" class="btn btn-primary" target="_blank">Contactar Consultora</a>
-            <a href="CV%20Zindy%20Cabrera.pdf" class="btn btn-secondary" download>Descargar_CV.exe</a>
+        <p class="hero-statement">
+            No es solo apoyo administrativo. Es <span class="highlight">arquitectura de procesos</span> aplicada con la empatía de la psicología y la velocidad de la IA.
+        </p>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">+3 Años</span>
+                <span class="stat-label">Dirección Jurídica</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Enfoque Remoto</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">IA</span>
+                <span class="stat-label">Optimización Real</span>
+            </div>
+        </div>
+        
+        <div class="cta-group">
+            <a href="https://wa.me/584129908773" class="btn btn-main" target="_blank">Agendar Consultoría</a>
+            <a href="CV%20Zindy%20Cabrera.pdf" class="btn btn-outline" download>Ver Trayectoria Full</a>
         </div>
     </header>
 
-    <section class="grid">
-        <div class="card">
-            <h3>[01] IA_Automation</h3>
-            <p>Implementación estratégica de Gemini y GPT para la automatización de flujos administrativos y creación de activos multimedia de alta fidelidad.</p>
-        </div>
-        <div class="card">
-            <h3>[02] Legal_Ops</h3>
-            <p>Experiencia consolidada en Dirección Jurídica (Telecomunicaciones Gran Caribe). Gestión documental técnica con rigor institucional.</p>
-        </div>
-        <div class="card">
-            <h3>[03] Psych_Design</h3>
-            <p>Análisis del comportamiento humano aplicado a la experiencia del cliente (CX) y a la cohesión de equipos en entornos de trabajo remoto.</p>
+    <section class="manifesto">
+        <div class="manifesto-grid">
+            <div>
+                <h2>Por qué Zindy</h2>
+                <p class="manifesto-text">
+                    Vengo del rigor institucional de <strong>Telecomunicaciones Gran Caribe</strong>, donde la precisión no era opcional. Hoy, ese mismo estándar lo aplico a negocios digitales. 
+                    <br><br>
+                    Mi formación en <strong>Psicología</strong> me permite entender que detrás de cada correo y cada proceso, hay personas. Mi dominio de <strong>IA (Gemini/GPT)</strong> me permite que esas personas recuperen su recurso más valioso: el tiempo.
+                </p>
+            </div>
+            <div style="background: var(--bg); padding: 40px; border-radius: 10px; border: 1px solid var(--primary);">
+                <code style="font-family: 'Fira Code'; color: var(--primary);">
+                    // FILOSOFÍA DE TRABAJO <br>
+                    if (proceso == manual) { <br>
+                    &nbsp;&nbsp;optimizar_con_IA(); <br>
+                    } <br>
+                    if (cliente == humano) { <br>
+                    &nbsp;&nbsp;aplicar_psicologia(); <br>
+                    }
+                </code>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>// © 2026 Zindy Cabrera | Diseñado con precisión para el futuro digital //</p>
+        <p>// ZINDY CABRERA 2026 | ssanevarz@gmail.com | CARACAS, VZLA //</p>
     </footer>
 
     <script>
         function toggleTheme() {
             const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
+            if (body.getAttribute('data-theme') === 'dark') {
                 body.removeAttribute('data-theme');
             } else {
                 body.setAttribute('data-theme', 'dark');
