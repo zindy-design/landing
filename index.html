@@ -135,10 +135,17 @@
 
         footer { text-align: center; padding: 40px 0; font-size: 0.7rem; opacity: 0.5; }
 
-        @media (min-width: 768px) {
-            .btn-group { flex-direction: row; max-width: none; justify-content: center; }
-            .btn { width: 250px; }
-        }
+@media (min-width: 768px) {
+    .btn-group { 
+        flex-direction: row; 
+        max-width: none; 
+        justify-content: center; 
+        gap: 20px; /* Un poco más de espacio entre ellos */
+    } 
+    .btn { 
+        width: 280px; /* Forzamos un ancho fijo donde caben palabras largas */
+    } 
+}
     </style>
 </head>
 <body id="mainBody">
@@ -208,4 +215,5 @@
 
 </body>
 </html>
+
 
